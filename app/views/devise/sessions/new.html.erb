@@ -1,0 +1,36 @@
+<div class="row valign-wrapper" style="height: 90vh;">
+  <div class="col s4 offset-s4">
+    <div class="card darken-1">
+      <div class="card-content">
+        <span class="card-title">Log in</span>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class='row'>
+            <div class='input-field col s12'>
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='input-field col s12'>
+              <%= f.label :password %><br />
+              <%= f.password_field :password, autocomplete: "current-password" %>
+            </div>
+          </div>
+          <% if devise_mapping.rememberable? %>
+            <%= f.label :remember_me do %>
+              <% f.check_box :remember_me, class: "filled-in" %>
+            <% end %>
+          <% end %>
+          <div class="actions">
+            <%= button_tag type: 'submit', class: "btn waves-effect waves-light" do %>
+              Log in<i class="material-icons right">send</i>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="card-action">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>

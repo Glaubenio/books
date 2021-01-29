@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 # Authentication
-gem 'devise'
+gem 'devise', '~> 4.7.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.7'
@@ -30,9 +30,11 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 # CSS Framework
-gem 'materialize-sass'
-gem 'material_icons'
-gem 'jquery-rails'
+gem 'materialize-sass', '~> 1.0.0'
+gem 'material_icons', '~> 2.2.1'
+gem 'jquery-rails', '~> 4.4.0'
+
+gem 'carrierwave', '~> 2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -40,7 +42,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
-  
+
   # Erb Formatting
   gem 'htmlbeautifier'
 

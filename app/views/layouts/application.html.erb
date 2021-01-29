@@ -7,21 +7,19 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <nav class="light-blue lighten-1" role="navigation">
-      <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="#">Navbar Link</a></li>
-        </ul>
-        <ul id="nav-mobile" class="side-nav">
-          <li><a href="#">Navbar Link</a></li>
-        </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-      </div>
-    </nav>
+    <% if current_admin.present? %>
+      <nav class="light-blue lighten-1" role="navigation">
+        <div class="nav-wrapper container">
+          <ul class="right hide-on-med-and-down">
+            <%= link_to destroy_admin_session_path, method: :delete, title: 'Sign out', wrap_tag: :li do %>
+              <i class="large material-icons">power_settings_new</i>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+    <% end %>
     <div class="container">
-      <div class="section">
-        <%= yield %>
-      </div>
+      <%= yield %>
     </div>
   </body>
 </html>
