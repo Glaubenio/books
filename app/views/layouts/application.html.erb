@@ -8,12 +8,15 @@
   </head>
   <body>
     <% if current_admin.present? %>
-      <nav class="light-blue lighten-1" role="navigation">
+      <nav class="teal lighten-2" role="navigation">
         <div class="nav-wrapper container">
-         <ul class="left">
-            <%= link_to root_path, title: 'All books', wrap_tag: :li do %>
-              <i class="large material-icons">book</i>
-            <% end %>
+          <ul class="left">
+            <li>
+              <%= link_to root_path, title: 'All books' do %>
+                <i class="large material-icons">book</i>
+              <% end %>
+            </li>
+            <li><h5>Books!</h5></li>
           </ul>
           <ul class="right">
             <%= link_to destroy_admin_session_path, method: :delete, title: 'Sign out', wrap_tag: :li do %>
