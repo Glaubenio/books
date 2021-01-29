@@ -1,25 +1,21 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Books</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @books.each do |book| %>
-      <tr>
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Book', new_book_path %>
+<div class="row">
+  <h1>Books</h1>
+  <% @books.each do |book| %>
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title"><%= book.title %></span>
+          <p><%= book.description%></p>
+        </div>
+        <div class="card-action">
+          <td><%= link_to 'Show', book %></td>
+          <td><%= link_to 'Edit', edit_book_path(book) %></td>
+          <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <br>
+  <%= link_to 'New Book', new_book_path %>
+</div>
