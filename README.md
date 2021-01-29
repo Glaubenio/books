@@ -28,3 +28,7 @@ Clone or Download the repo on your machine, and run the following commands:
 
 You just need to run:
 `rake test`
+
+## For admin access unlock
+
+the page is at: `/admins/sign_in`
