@@ -1,24 +1,28 @@
-# README
+## Books
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is a technical challenge of Zygo
 
-Things you may want to cover:
+It consists in a authenticated CRUD for Books, with some restrictions for admin's
 
-* Ruby version
+It was developed using:
 
-* System dependencies
+* Ruby 2.6.3p62
 
-* Configuration
+* Rails 5.1.7
 
-* Database creation
+* [Materialize](https://materializecss.com/) 
 
-* Database initialization
+* SQLite
 
-* How to run the test suite
+## Setup
 
-* Services (job queues, cache servers, search engines, etc.)
+Clone or Download the repo on your machine, and run the following commands:
 
-* Deployment instructions
+`rake db:setup`
+`rake db:migrate` 
+`rails s` or `rails server`
 
-* ...
+## Running tests
+
+You just need to run:
+`rake test`
