@@ -14,12 +14,14 @@ It was developed using:
 
 * SQLite
 
-## Setup
+## Setting up and Running
 
 Clone or Download the repo on your machine, and run the following commands:
 
 `rake db:setup`
-`rake db:migrate` 
+
+`rake db:migrate`
+
 `rails s` or `rails server`
 
 ## Running tests
