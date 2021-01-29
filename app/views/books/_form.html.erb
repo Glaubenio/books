@@ -1,17 +1,42 @@
-<%= form_with(model: book, local: true) do |form| %>
-  <% if book.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
-
-      <ul>
-      <% book.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="row mt50">
+  <div class="col s8 offset-s2">
+    <div class="card darken-1">
+      <div class="card-content">
+        <span class="card-title"><%= book.persisted? ? "Editing #{book.title}" : 'New book'%></span>
+        <%= form_for(book) do |f| %>
+          <div class='row'>
+            <div class='input-field col s12'>
+              <i class="material-icons prefix">title</i>
+              <%= f.label :title %><br />
+              <%= f.text_field :title, required: true %>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='input-field col s12'>
+              <i class="material-icons prefix">face</i>
+              <%= f.label :author %><br />
+              <%= f.text_field :author, required: true %>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='input-field col s12'>
+              <i class="material-icons prefix">insert_photo</i>
+              <%= f.label :image, 'Image Link' %><br />
+              <%= f.text_field :image, required: true %>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='input-field col s12'>
+              <%= f.label :description %><br />
+              <%= f.text_area :description, required: true, class: "materialize-textarea" %>
+            </div>
+          </div>
+          <div class="actions">
+            <%= button_tag type: 'submit', class: "btn waves-effect waves-light" do %>
+              Save<i class="material-icons right">save</i>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
   </div>
-<% end %>

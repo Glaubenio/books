@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: books
@@ -11,4 +13,7 @@
 #  updated_at  :datetime         not null
 #
 class Book < ApplicationRecord
+  scope :search, lambda { |query|
+    where('(description like :query) OR (title like :query) OR (author like :query)', query: "%#{query}%")
+  }
 end

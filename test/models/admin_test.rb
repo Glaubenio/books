@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: admins
@@ -16,10 +18,14 @@
 #  index_admins_on_email                 (email) UNIQUE
 #  index_admins_on_reset_password_token  (reset_password_token) UNIQUE
 #
-require 'test_helper'
+# require 'test_helper'
 
 class AdminTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'should create admin' do
+    assert_difference('Admin.count') do
+      admin = create(:admin, email: 'test@mail.com', password: '123456')
+      assert_equal admin.email, 'test@mail.com'
+      assert_equal admin.password, '123456'
+    end
+  end
 end

@@ -43,11 +43,9 @@ group :development, :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
 
-  # Erb Formatting
-  gem 'htmlbeautifier'
-
-  # Code linter
-  gem 'rubocop'
+  # Mocking
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -57,8 +55,15 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
   # Annotates model's attributes
   gem 'annotate'
+
+  # Erb Formatting
+  gem 'htmlbeautifier'
+
+  # Code linter
+  gem 'rubocop'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

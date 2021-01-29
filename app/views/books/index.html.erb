@@ -10,21 +10,48 @@
       <% end %>
     </h3>
   </div>
-  <div class="row">
-    <% @books.each do |book| %>
-      <div class="col s6 m3">
-        <div class="card blue-grey darken-1">
-          <div class="card-content white-text">
-            <span class="card-title"><%= book.title %></span>
-            <p><%= book.description%></p>
-          </div>
-          <div class="card-action">
-            <td><%= link_to 'Show', book %></td>
-            <td><%= link_to 'Edit', edit_book_path(book) %></td>
-            <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </div>
+  <div class="row mb0">
+    <%= form_tag root_path, method: :get, remote: true, id: 'searchform' do |f|%>
+      <div class="row">
+        <div class="input-field col s11">
+          <%= text_field_tag :query %><br />
+          <%= label_tag :query, "Search books" %>
+        </div>
+        <div class="col s1">
+          <%= button_tag type: 'submit', class: "btn-floating btn-large waves-effect waves-light" do %>
+            <i class="material-icons">search</i>
+          <% end %>
         </div>
       </div>
     <% end %>
   </div>
+  <div class="row">
+    <ul id="dropdown1" class="dropdown-content">
+      <li>
+        <%= link_to 'Ordernar por título', root_path(order: 'asc'), remote: true, onclick: 'updateOrderDropdownLabel(this)' %>
+      </li>
+      <li>
+        <%= link_to 'A-Z', root_path(order: 'asc'), remote: true, onclick: 'updateOrderDropdownLabel(this)' %>
+      </li>
+      <li>
+        <%= link_to 'Z-A', root_path(order: 'desc'), remote: true, onclick: 'updateOrderDropdownLabel(this)' %>
+      </li>
+    </ul>
+    <button id="order-dropdown" class="waves-effect waves-light btn dropdown-trigger right" data-target="dropdown1">
+      Ordernar por título<i class="material-icons right">arrow_drop_down</i>
+    </button>
+  </div>
+  <div class="row" id="books-container">
+    <%= render partial: 'book', collection: @books, as: :book %>
+  </div>
 </div>
+<script>
+  function updateOrderDropdownLabel(obj) {
+    const textToUpdate = $(obj).text()
+    $("#order-dropdown").html(`${textToUpdate}<i class="material-icons right">arrow_drop_down</i>`)
+  }
+  
+  $(document).ready(function () {
+    $(".dropdown-trigger").dropdown();
+  });
+</script>

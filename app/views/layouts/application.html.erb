@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ZygoTest</title>
+    <title>Books!</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -10,7 +10,12 @@
     <% if current_admin.present? %>
       <nav class="light-blue lighten-1" role="navigation">
         <div class="nav-wrapper container">
-          <ul class="right hide-on-med-and-down">
+         <ul class="left">
+            <%= link_to root_path, title: 'All books', wrap_tag: :li do %>
+              <i class="large material-icons">book</i>
+            <% end %>
+          </ul>
+          <ul class="right">
             <%= link_to destroy_admin_session_path, method: :delete, title: 'Sign out', wrap_tag: :li do %>
               <i class="large material-icons">power_settings_new</i>
             <% end %>
