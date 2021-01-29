@@ -28,7 +28,7 @@
   <div class="row">
     <ul id="dropdown1" class="dropdown-content">
       <li>
-        <%= link_to 'Ordernar por título', root_path(order: 'asc'), remote: true, onclick: 'updateOrderDropdownLabel(this)' %>
+        <%= link_to 'Order by title', root_path(order: 'asc'), remote: true, onclick: 'updateOrderDropdownLabel(this)' %>
       </li>
       <li>
         <%= link_to 'A-Z', root_path(order: 'asc'), remote: true, onclick: 'updateOrderDropdownLabel(this)' %>
@@ -38,7 +38,7 @@
       </li>
     </ul>
     <button id="order-dropdown" class="waves-effect waves-light btn dropdown-trigger right" data-target="dropdown1">
-      Ordernar por título<i class="material-icons right">arrow_drop_down</i>
+      Order by title<i class="material-icons right">arrow_drop_down</i>
     </button>
   </div>
   <div class="row" id="books-container">
